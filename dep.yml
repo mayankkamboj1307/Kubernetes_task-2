@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mayank
+  namespace: ingress-nginx
+  labels:
+    app: django
+spec:
+  selector:
+    matchLabels:
+      app: django
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - name: mayank
+        image: masthan9/dj-demo:shaiklatest
+        ports:
+        - containerPort: 8000
